@@ -16,7 +16,11 @@ COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 
 RUN chmod +x /usr/local/bin/docker-entrypoint
 
+RUN adduser -D $DEPLOYER_USER
+
 USER $DEPLOYER_USER
+
+WORKDIR /home/$DEPLOYER_USER
 
 ENTRYPOINT ["tini", "--", "docker-entrypoint"]
 

@@ -15,5 +15,4 @@ if [ -f "/.dockerenv" ]; then
     echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> /home/$DEPLOYER_USER/.ssh/config
 fi
 
-
 exec /usr/local/bin/dep "$@"
