@@ -12,7 +12,7 @@ fi
 # you will overwrite your user's SSH config.
 if [ -f "/.dockerenv" ]; then
     mkdir -p ~/.ssh
-    echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> /home/$DEPLOYER_USER/.ssh/config
 fi
 
 
