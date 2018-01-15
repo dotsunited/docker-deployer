@@ -6,7 +6,7 @@ ENV DEPLOYER_VERSION=6.0.5
 ENV DEPLOYER_USER=deployer-user
 
 RUN apk update --no-cache && \
-    apk add bash curl openssh-client tini --no-cache
+    apk add bash curl openssh-client tini rsync --no-cache
 
 RUN curl -LO https://deployer.org/releases/v$DEPLOYER_VERSION/deployer.phar && \
     mv deployer.phar /usr/local/bin/dep && \
