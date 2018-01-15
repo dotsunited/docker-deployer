@@ -12,8 +12,9 @@ RUN curl -LO https://deployer.org/releases/v$DEPLOYER_VERSION/deployer.phar && \
     mv deployer.phar /usr/local/bin/dep && \
     chmod +x /usr/local/bin/dep
 
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN ln -s usr/local/bin/docker-entrypoint.sh /docker-entrypoint.sh
-ENTRYPOINT ["docker-entrypoint.sh"]
+COPY deployer-ssh-setup.sh /usr/local/bin/deployer-ssh-setup
+RUN chmod +x /usr/local/bin/deployer-ssh-setup
+
+ENTRYPOINT ["tini", "--"]
 
 CMD ["dep", "--version"]
