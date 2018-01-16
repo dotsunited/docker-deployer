@@ -1,6 +1,6 @@
 # docker-deployer
 
-A minimal Alpine Linux docker image with the latest git-ftp suited for automated deployments via Continuous Delivery systems like GitLab Pipelines.
+A minimal alpine linux docker image with the php-deployer suited for automated deployments via continuous delivery systems like GitLab pipelines.
 
 Automatically build upon pushes to the master branch: https://hub.docker.com/r/dotsunited/docker-deployer
 
