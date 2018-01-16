@@ -17,6 +17,9 @@ RUN curl -LO https://deployer.org/releases/v$DEPLOYER_VERSION/deployer.phar && \
 COPY deployer-ssh-setup.sh /usr/local/bin/deployer-ssh-setup
 RUN chmod +x /usr/local/bin/deployer-ssh-setup
 
-ENTRYPOINT ["tini", "--"]
+COPY deployer-ssh-start.sh /usr/local/bin/deployer-ssh-start
+RUN chmod +x /usr/local/bin/deployer-ssh-start
+
+ENTRYPOINT ["tini", "--", "deployer-ssh-start"]
 
 CMD ["dep", "--version"]
