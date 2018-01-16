@@ -8,31 +8,16 @@ Automatically build upon pushes to the master branch: https://hub.docker.com/r/d
 Example .gitlab-ci.yml configuration:
 
 ```
+before_script:
+  - deployer-ssh-setup
+
 deploy:
-    image: dotsunited/docker-deployer
-    stage: deploy
-    only:
-        - master
-    script:
-        - deploy
+  image: dotsunited/deployer:{VERSION}
+  script:
+  - dep deploy --file=$CI_PROJECT_DIR/deploy.php {PARAMETERS}
+  stage: deploy
 ```
-Example console (with SSH-Password):
-```
-docker run \ 
-    -v ~/.ssh:/home/deployer-user/.ssh \ 
-    -v $(pwd):/home/deployer-user --user deployer-user:deployer-user \ 
-    --tty \
-    --interactive \ 
-    --rm \
-    dotsunited/docker-deployer {PARAMETER}
-```
-Example console (without SSH-Password):
-```
-docker run \ 
-    -v ~/.ssh:/home/deployer-user/.ssh \ 
-    -v $(pwd):/home/deployer-user --user deployer-user:deployer-user \ 
-    --rm \
-    dotsunited/docker-deployer {PARAMETER}
-```
+This image is not usable with docker-cli directly!
+
 ## License
 Copyright (c) 2018 Dots United GmbH. Released under the MIT license.
