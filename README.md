@@ -2,8 +2,9 @@ docker-deployer
 ===============
 
 A minimal Alpine Linux Docker image with the latest
-[deployer](https://deployer.org) suited for automated deployments via
-Continuous Delivery systems like GitLab Pipelines.
+[deployer](https://deployer.org) and its additional
+[recipes](https://github.com/deployphp/recipes)suited for automated deployments
+via Continuous Delivery systems like GitLab Pipelines.
 
 Automatically build upon pushes to the master branch:
 https://hub.docker.com/r/dotsunited/docker-deployer
