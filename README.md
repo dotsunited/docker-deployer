@@ -3,7 +3,7 @@ docker-deployer
 
 A minimal Alpine Linux Docker image with the latest
 [deployer](https://deployer.org) and its additional
-[recipes](https://github.com/deployphp/recipes)suited for automated deployments
+[recipes](https://github.com/deployphp/recipes) suited for automated deployments
 via Continuous Delivery systems like GitLab Pipelines.
 
 Automatically build upon pushes to the master branch:
@@ -40,7 +40,7 @@ deploy_production:
 Make sure, you configure the `$SSH_PRIVATE_KEY` and `$SSH_KNOWN_HOSTS` variables
 in the CI/CD settings on GitLab.
 
-For more info, read 
+For more info, read
 [Using SSH keys with GitLab CI/CD](https://docs.gitlab.com/ee/ci/ssh_keys/README.html).
 
 ### Docker
