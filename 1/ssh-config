@@ -1,0 +1,6 @@
+Host *
+    # Allow SSH multiplexing
+    # http://blog.idetailaid.co.uk/ssh-multiplex-control-sockets-not-connecting-error/
+    ControlMaster auto
+    ControlPath /dev/shm/control:%h:%p:%r
+    ControlPersist 300s
