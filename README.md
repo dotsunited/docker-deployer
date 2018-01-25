@@ -7,7 +7,7 @@ A minimal Alpine Linux Docker image with the latest
 via Continuous Delivery systems like GitLab Pipelines.
 
 Automatically build upon pushes to the master branch:
-https://hub.docker.com/r/dotsunited/docker-deployer
+https://hub.docker.com/r/dotsunited/deployer
 
 Usage
 -----
