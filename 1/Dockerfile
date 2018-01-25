@@ -20,13 +20,11 @@ RUN docker-php-ext-install zip
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-RUN mkdir -p ~/.composer ~/.ssh /deployer
+RUN mkdir -p ~/.composer /deployer
 
-RUN chmod 700 ~/.ssh
-
-COPY ssh-config /root/.ssh/config
-
-RUN chmod 644 ~/.ssh/config
+COPY ssh_config /ssh_config
+RUN cat /ssh_config >> /etc/ssh/ssh_config
+RUN rm -f /ssh_config
 
 # Run self-update in case we have copied an outdated version earlier
 RUN composer self-update
