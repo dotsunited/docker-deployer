@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+# check if the first argument passed in looks like a flag
+if [ "$(printf %c "$1")" = '-' ]; then
+	set -- dep "$@"
+fi
+
+exec "$@"
