@@ -8,6 +8,7 @@ ENV COMPOSER_HTACCESS_PROTECT 0
 
 ENV DEPLOYER_VERSION=6.3.0
 ENV DEPLOYER_RECIPES_VERSION=6.1.6
+ENV BUZZ_VERSION=2.5.0
 
 RUN apk update --no-cache && \
     apk upgrade --no-cache && \
@@ -32,6 +33,7 @@ RUN composer self-update
 RUN composer global require --prefer-dist --no-interaction hirak/prestissimo
 RUN composer global require --prefer-dist --no-interaction deployer/deployer:"$DEPLOYER_VERSION"
 RUN composer global require --prefer-dist --no-interaction deployer/recipes:"$DEPLOYER_RECIPES_VERSION"
+RUN composer global require --prefer-dist --no-interaction clue/buzz-react:"$BUZZ_VERSION"
 
 RUN rm -rf ~/.composer/cache/*
 
