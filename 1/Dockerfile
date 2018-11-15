@@ -8,7 +8,10 @@ ENV COMPOSER_HTACCESS_PROTECT 0
 
 ENV DEPLOYER_VERSION=6.3.0
 ENV DEPLOYER_RECIPES_VERSION=6.1.6
+ENV REACTPHP_EVENT_LOOP_VERSION=1.0.0
+ENV REACTPHP_PROMISE_VERSION=2.7.0
 ENV BUZZ_VERSION=2.5.0
+ENV BLOCK_VERSION=1.3.0
 
 RUN apk update --no-cache && \
     apk upgrade --no-cache && \
@@ -33,7 +36,10 @@ RUN composer self-update
 RUN composer global require --prefer-dist --no-interaction hirak/prestissimo
 RUN composer global require --prefer-dist --no-interaction deployer/deployer:"$DEPLOYER_VERSION"
 RUN composer global require --prefer-dist --no-interaction deployer/recipes:"$DEPLOYER_RECIPES_VERSION"
+RUN composer global require --prefer-dist --no-interaction react/event-loop:"$REACTPHP_EVENT_LOOP_VERSION"
+RUN composer global require --prefer-dist --no-interaction react/promise:"$REACTPHP_PROMISE_VERSION"
 RUN composer global require --prefer-dist --no-interaction clue/buzz-react:"$BUZZ_VERSION"
+RUN composer global require --prefer-dist --no-interaction clue/block-react:"$BLOCK_VERSION"
 
 RUN rm -rf ~/.composer/cache/*
 
