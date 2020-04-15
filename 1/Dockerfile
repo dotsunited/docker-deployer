@@ -15,7 +15,7 @@ ENV BLOCK_VERSION=1.3.0
 
 RUN apk update --no-cache && \
     apk upgrade --no-cache && \
-    apk add bash curl git openssh-client openssl rsync tini zlib-dev --no-cache
+    apk add bash curl git openssh-client openssl rsync tini zlib-dev libzip-dev --no-cache
 
 RUN echo "memory_limit=-1" > "$PHP_INI_DIR/conf.d/memory-limit.ini"
 RUN echo "date.timezone=${PHP_TIMEZONE:-UTC}" > "$PHP_INI_DIR/conf.d/date_timezone.ini"
