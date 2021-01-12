@@ -1,4 +1,4 @@
-FROM php:7-alpine
+FROM php:7.4-alpine
 
 MAINTAINER Dots United GmbH <info@dotsunited.de>
 
