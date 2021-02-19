@@ -2,8 +2,7 @@ docker-deployer
 ===============
 
 A minimal Alpine Linux Docker image with the latest
-[deployer](https://deployer.org) and its additional
-[recipes](https://github.com/deployphp/recipes) suited for automated deployments
+[deployer](https://deployer.org) suited for automated deployments
 via Continuous Delivery systems like GitLab Pipelines.
 
 Automatically build upon pushes to the master branch:
@@ -26,7 +25,7 @@ before_script:
   - chmod 644 ~/.ssh/known_hosts
 
 deploy_production:
-  image: dotsunited/deployer:1
+  image: dotsunited/deployer:2
   stage: deploy
   environment:
     name: production
@@ -34,7 +33,7 @@ deploy_production:
   only:
     - master
   script:
-    - dep deploy production -vvv
+    - dep deploy stage=production -vvv
 ```
 
 Make sure, you configure the `$SSH_PRIVATE_KEY` and `$SSH_KNOWN_HOSTS` variables
@@ -53,7 +52,7 @@ docker run \
     --volume ~/.ssh:/root/.ssh \
     --volume ~/.composer/cache/files:/root/.composer/cache/files \
     --volume $(pwd):/deployer \
-    dotsunited/deployer:1 dep deploy staging
+    dotsunited/deployer:2 dep deploy stage=staging
 ```
 
 License
