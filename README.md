@@ -58,5 +58,5 @@ docker run \
 License
 -------
 
-Copyright (c) 2017-2022 Dots United GmbH.
+Copyright (c) 2017-2024 Dots United GmbH.
 Released under the [MIT](LICENSE) license.
