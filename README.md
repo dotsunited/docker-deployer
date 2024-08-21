@@ -25,13 +25,13 @@ before_script:
   - chmod 644 ~/.ssh/known_hosts
 
 deploy_production:
-  image: dotsunited/deployer:2
+  image: dotsunited/deployer:3
   stage: deploy
   environment:
     name: production
     url: https://example.com
   only:
-    - master
+    - main
   script:
     - dep deploy stage=production -vvv
 ```
@@ -52,7 +52,7 @@ docker run \
     --volume ~/.ssh:/root/.ssh \
     --volume ~/.composer/cache/files:/root/.composer/cache/files \
     --volume $(pwd):/deployer \
-    dotsunited/deployer:2 dep deploy stage=staging
+    dotsunited/deployer:3 dep deploy stage=staging
 ```
 
 License
